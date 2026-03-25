@@ -1,1 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GGWP — Mentions légales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5F0E8;
+      --dark:  #1A1A1A;
+      --gold:  #C9963A;
+      --muted: #6B6560;
+      --border: #C8C3B8;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 40px;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .site-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 600;
+      letter-spacing: 6px;
+      line-height: 1;
+      color: var(--dark);
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 200px;
+      margin: 20px auto 0;
+    }
+    .ornament-line { flex: 1; height: 1px; background: var(--gold); }
+    .ornament-dot  { font-size: 8px; color: var(--gold); }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      display: block;
+      padding: 18px 36px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--dark);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 120px;
+    }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── Typography ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    h1.page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .update-date {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin: 48px 0 16px;
+      color: var(--dark);
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    p { margin-bottom: 20px; color: var(--dark); }
+
+    .highlight {
+      border-left: 2px solid var(--gold);
+      padding: 20px 24px;
+      margin: 32px 0;
+      background: rgba(201, 150, 58, 0.05);
+    }
+
+    .highlight p { margin-bottom: 0; font-style: italic; color: var(--muted); }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ul {
+      margin: 0 0 20px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: var(--dark);
+    }
+    ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      font-size: 6px;
+      color: var(--gold);
+      top: 12px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    footer strong { color: var(--dark); font-weight: 500; }
+
+    @media (max-width: 600px) {
+      nav a { padding: 16px 20px; font-size: 10px; letter-spacing: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="brand">Sudoku</p>
+  <h1 class="site-title">GGWP</h1>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span class="ornament-dot">◆</span>
+    <div class="ornament-line"></div>
+  </div>
+</header>
+
+<nav>
+  <a href="#" class="active" onclick="show('privacy', this)">Politique de confidentialité</a>
+  <a href="#" onclick="show('terms', this)">Conditions d'utilisation</a>
+  <a href="#" onclick="show('contact', this)">Contact</a>
+</nav>
+
+<main>
+
+  <!-- POLITIQUE DE CONFIDENTIALITÉ -->
+  <div class="section active" id="privacy">
+    <p class="section-label">Données & vie privée</p>
+    <h1 class="page-title">Politique de confidentialité</h1>
+    <p class="update-date">Dernière mise à jour : mars 2026</p>
+
+    <div class="highlight">
+      <p>GGWP Sudoku ne collecte, ne stocke et ne transmet aucune donnée personnelle. Votre vie privée est entièrement préservée.</p>
+    </div>
+
+    <h2>1. Qui sommes-nous</h2>
+    <p>GGWP est un projet indépendant développé par un développeur français. L'application GGWP Sudoku est disponible gratuitement sur le Google Play Store, sans publicité et sans modèle économique basé sur vos données.</p>
+
+    <h2>2. Données collectées</h2>
+    <p>Nous ne collectons <strong>aucune donnée personnelle</strong>. L'application ne nécessite aucun compte utilisateur, aucune adresse e-mail et aucune connexion internet pour fonctionner.</p>
+    <p>Les seules données générées par l'application sont :</p>
+    <ul>
+      <li>Vos statistiques de jeu (temps, erreurs, niveau)</li>
+      <li>Vos préférences (langue, mode sombre, paramètres)</li>
+      <li>La sauvegarde de votre partie en cours</li>
+    </ul>
+    <p>Toutes ces données sont <strong>stockées uniquement sur votre appareil</strong>, dans la mémoire locale de l'application. Elles ne nous sont jamais transmises et nous n'y avons aucun accès.</p>
+
+    <h2>3. Publicité</h2>
+    <p>L'application ne contient aucune publicité et n'intègre aucun SDK publicitaire. Aucun identifiant publicitaire n'est utilisé.</p>
+
+    <h2>4. Services tiers</h2>
+    <p>L'application n'intègre aucun service tiers d'analyse (Google Analytics, Firebase, etc.), aucun outil de suivi et aucun réseau social.</p>
+    <p>La distribution via le Google Play Store est soumise aux propres conditions de Google, indépendantes de notre application.</p>
+
+    <h2>5. Droits des utilisateurs (RGPD)</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez de droits sur vos données. Dans notre cas, comme aucune donnée n'est collectée, ces droits s'exercent directement sur votre appareil :</p>
+    <ul>
+      <li><strong>Accès et suppression</strong> : effacez les données de l'app dans Paramètres → Applications → GGWP Sudoku → Stockage → Vider les données</li>
+      <li><strong>Portabilité</strong> : non applicable (aucune donnée centralisée)</li>
+    </ul>
+
+    <h2>6. Mineurs</h2>
+    <p>L'application est destinée à tous les publics. Aucune donnée concernant les mineurs n'est collectée.</p>
+
+    <h2>7. Modifications</h2>
+    <p>Cette politique peut être mise à jour. En cas de modification substantielle, la date de mise à jour sera modifiée en haut de cette page. L'utilisation continue de l'application vaut acceptation des modifications.</p>
+
+    <h2>8. Contact</h2>
+    <p>Pour toute question relative à cette politique, contactez-nous à : <a href="mailto:contact@ggwp.app">contact@ggwp.app</a></p>
+  </div>
+
+  <!-- CONDITIONS D'UTILISATION -->
+  <div class="section" id="terms">
+    <p class="section-label">Utilisation</p>
+    <h1 class="page-title">Conditions d'utilisation</h1>
+    <p class="update-date">Dernière mise à jour : mars 2026</p>
+
+    <div class="highlight">
+      <p>En téléchargeant et en utilisant GGWP Sudoku, vous acceptez les présentes conditions d'utilisation.</p>
+    </div>
+
+    <h2>1. L'application</h2>
+    <p>GGWP Sudoku est une application de jeu de Sudoku développée et distribuée gratuitement par GGWP. Elle est disponible sur Android via le Google Play Store.</p>
+
+    <h2>2. Licence d'utilisation</h2>
+    <p>GGWP vous accorde une licence personnelle, non exclusive, non transférable et révocable pour utiliser l'application sur vos appareils personnels, conformément aux présentes conditions.</p>
+    <p>Il vous est interdit de :</p>
+    <ul>
+      <li>Copier, modifier ou distribuer l'application</li>
+      <li>Tenter de décompiler ou d'effectuer de l'ingénierie inverse sur l'application</li>
+      <li>Utiliser l'application à des fins commerciales sans autorisation préalable</li>
+    </ul>
+
+    <h2>3. Gratuité et financement</h2>
+    <p>L'application est et restera gratuite. Elle ne contient aucune publicité. Le projet peut être soutenu volontairement via un lien de financement participatif, mais aucun paiement n'est requis pour accéder à l'intégralité des fonctionnalités.</p>
+
+    <h2>4. Propriété intellectuelle</h2>
+    <p>L'application, son code, son design, ses animations et ses textes sont la propriété exclusive de GGWP. Les puzzles de Sudoku sont générés à partir de bases de données publiques sous licence ouverte.</p>
+
+    <h2>5. Disponibilité</h2>
+    <p>Nous nous efforçons de maintenir l'application disponible et fonctionnelle, mais ne pouvons garantir une disponibilité sans interruption. Nous nous réservons le droit de modifier, suspendre ou interrompre l'application à tout moment sans préavis.</p>
+
+    <h2>6. Limitation de responsabilité</h2>
+    <p>L'application est fournie "telle quelle". GGWP ne saurait être tenu responsable de tout dommage direct ou indirect lié à l'utilisation de l'application, y compris la perte de données de jeu.</p>
+
+    <h2>7. Droit applicable</h2>
+    <p>Les présentes conditions sont soumises au droit français. En cas de litige, les tribunaux français sont compétents.</p>
+
+    <h2>8. Contact</h2>
+    <p>Pour toute question : <a href="mailto:contact@ggwp.app">contact@ggwp.app</a></p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <p class="section-label">Nous écrire</p>
+    <h1 class="page-title">Contact</h1>
+    <p class="update-date"> </p>
+
+    <div class="highlight">
+      <p>GGWP est un projet indépendant. Nous lisons tous les messages et répondons dans les meilleurs délais.</p>
+    </div>
+
+    <h2>Par e-mail</h2>
+    <p>Pour toute question, suggestion ou signalement de bug :<br>
+    <a href="mailto:contact@ggwp.app">contact@ggwp.app</a></p>
+
+    <h2>Signaler un problème</h2>
+    <p>Si vous rencontrez un bug ou un comportement inattendu dans l'application, décrivez-nous :</p>
+    <ul>
+      <li>Le modèle de votre téléphone et la version Android</li>
+      <li>Les étapes pour reproduire le problème</li>
+      <li>Une capture d'écran si possible</li>
+    </ul>
+
+    <h2>Suggestions</h2>
+    <p>Vos idées sont les bienvenues. GGWP est construit dans l'esprit d'une communauté — vos retours façonnent les prochaines versions.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p><strong>GGWP</strong> · Sudoku · Gratuit, sans publicité, sans données</p>
+  <p style="margin-top:8px">© 2026 GGWP · Tous droits réservés</p>
+</footer>
+
+<script>
+  function show(id, link) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+</script>
+
+</body>
+</html>
