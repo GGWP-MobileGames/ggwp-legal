@@ -25,11 +25,34 @@
       line-height: 1.8;
     }
 
-    /* ── Header ── */
+    /* ── Lang switcher ── */
+    .lang-bar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 12px 24px;
+      gap: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      padding: 4px 12px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--dark); }
+    .lang-btn.active { color: var(--dark); border-color: var(--border); }
+
     header {
       border-bottom: 1px solid var(--border);
-      padding: 48px 0 40px;
+      padding: 36px 24px;
       text-align: center;
+      background: var(--cream);
     }
 
     .brand {
@@ -156,16 +179,8 @@
     a { color: var(--gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    ul {
-      margin: 0 0 20px 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    ul li {
-      padding: 6px 0 6px 20px;
-      position: relative;
-      color: var(--dark);
-    }
+    ul { margin: 0 0 20px 0; padding-left: 0; list-style: none; }
+    ul li { padding: 6px 0 6px 20px; position: relative; color: var(--dark); }
     ul li::before {
       content: '◆';
       position: absolute;
@@ -184,7 +199,6 @@
       color: var(--muted);
       letter-spacing: 1px;
     }
-
     footer strong { color: var(--dark); font-weight: 500; }
 
     @media (max-width: 600px) {
@@ -194,38 +208,41 @@
 </head>
 <body>
 
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('fr', this)">FR</button>
+  <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+</div>
+
 <header>
-  <p class="brand">Sudoku</p>
-  <h1 class="site-title">GGWP</h1>
-  <div class="ornament">
-    <div class="ornament-line"></div>
-    <span class="ornament-dot">◆</span>
-    <div class="ornament-line"></div>
-  </div>
+  <img src="logo.png" alt="GGWP Mobile Games" style="max-width: 340px; width: 80%; display: block; margin: 0 auto;">
 </header>
 
-<nav>
-  <a href="#" class="active" onclick="show('privacy', this)">Politique de confidentialité</a>
-  <a href="#" onclick="show('terms', this)">Conditions Générations d'Utilisation</a>
-  <a href="#" onclick="show('contact', this)">Contacts</a>
+<nav id="nav-fr">
+  <a href="#" class="active" onclick="show('privacy-fr', this)">Politique de confidentialité</a>
+  <a href="#" onclick="show('terms-fr', this)">Conditions Générales d'Utilisation</a>
+  <a href="#" onclick="show('contact-fr', this)">Contact</a>
+</nav>
+
+<nav id="nav-en" style="display:none">
+  <a href="#" class="active" onclick="show('privacy-en', this)">Privacy Policy</a>
+  <a href="#" onclick="show('terms-en', this)">Terms of Use</a>
+  <a href="#" onclick="show('contact-en', this)">Contact</a>
 </nav>
 
 <main>
 
-  <!-- POLITIQUE DE CONFIDENTIALITÉ -->
-  <div class="section active" id="privacy">
+  <!-- ═══════════════════════ FRANÇAIS ═══════════════════════ -->
+
+  <div class="section active" id="privacy-fr">
     <p class="section-label">Données & vie privée</p>
     <h1 class="page-title">Politique de confidentialité</h1>
     <p class="update-date">Dernière mise à jour : mars 2026</p>
-
     <div class="highlight">
       <p>GGWP Sudoku ne collecte, ne stocke et ne transmet aucune donnée personnelle.</p>
       <p>Votre vie privée est entièrement préservée.</p>
     </div>
-
     <h2>1. Qui sommes-nous</h2>
     <p>GGWP est un projet indépendant développé par un développeur français. L'application GGWP Sudoku est disponible gratuitement sur le Google Play Store, sans publicité et sans modèle économique basé sur vos données.</p>
-
     <h2>2. Données collectées</h2>
     <p>Nous ne collectons <strong>aucune donnée personnelle</strong>. L'application ne nécessite aucun compte utilisateur, aucune adresse e-mail et aucune connexion internet pour fonctionner.</p>
     <p>Les seules données générées par l'application sont :</p>
@@ -235,44 +252,34 @@
       <li>La sauvegarde de votre partie en cours</li>
     </ul>
     <p>Toutes ces données sont <strong>stockées uniquement sur votre appareil</strong>, dans la mémoire locale de l'application. Elles ne nous sont jamais transmises et nous n'y avons aucun accès.</p>
-
     <h2>3. Publicité</h2>
     <p>L'application ne contient aucune publicité et n'intègre aucun SDK publicitaire. Aucun identifiant publicitaire n'est utilisé.</p>
-
     <h2>4. Services tiers</h2>
     <p>L'application n'intègre aucun service tiers d'analyse (Google Analytics, Firebase, etc.), aucun outil de suivi et aucun réseau social.</p>
     <p>La distribution via le Google Play Store est soumise aux propres conditions de Google, indépendantes de notre application.</p>
-
     <h2>5. Droits des utilisateurs (RGPD)</h2>
     <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez de droits sur vos données. Dans notre cas, comme aucune donnée n'est collectée, ces droits s'exercent directement sur votre appareil :</p>
     <ul>
       <li><strong>Accès et suppression</strong> : effacez les données de l'app dans Paramètres → Applications → Sudoku (celle de GGWP, évidemment) → Stockage → Vider les données</li>
       <li><strong>Portabilité</strong> : non applicable (aucune donnée centralisée)</li>
     </ul>
-
     <h2>6. Mineurs</h2>
     <p>L'application est destinée à tous les publics. Aucune donnée concernant les mineurs n'est collectée.</p>
-
     <h2>7. Modifications</h2>
     <p>Cette politique peut être mise à jour. En cas de modification substantielle, la date de mise à jour sera modifiée en haut de cette page. L'utilisation continue de l'application vaut acceptation des modifications.</p>
-
     <h2>8. Contact</h2>
     <p>Pour toute question relative à cette politique, contactez-nous à : <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
   </div>
 
-  <!-- CONDITIONS GÉNÉRALES D'UTILISATION -->
-  <div class="section" id="terms">
+  <div class="section" id="terms-fr">
     <p class="section-label">Utilisation</p>
     <h1 class="page-title">Conditions Générales d'Utilisation</h1>
     <p class="update-date">Dernière mise à jour : mars 2026</p>
-
     <div class="highlight">
       <p>En téléchargeant et en utilisant GGWP Sudoku, vous acceptez les présentes Conditions Générales d'Utilisation (CGU).</p>
     </div>
-
     <h2>1. L'application</h2>
     <p>GGWP Sudoku est une application de jeu de Sudoku développée et distribuée gratuitement par GGWP. Elle est disponible sur Android via le Google Play Store.</p>
-
     <h2>2. Licence d'utilisation</h2>
     <p>GGWP vous accorde une licence personnelle, non exclusive, non transférable et révocable pour utiliser l'application sur vos appareils personnels, conformément aux présentes conditions.</p>
     <p>Il vous est interdit de :</p>
@@ -281,40 +288,30 @@
       <li>Tenter de décompiler ou d'effectuer de la rétro-ingénierie sur l'application</li>
       <li>Utiliser l'application à des fins commerciales sans autorisation préalable</li>
     </ul>
-
     <h2>3. Gratuité et financement</h2>
     <p>L'application est et restera gratuite. Elle ne contient aucune publicité.</p>
-
     <h2>4. Propriété intellectuelle</h2>
     <p>L'application, son code, son design, ses animations et ses textes sont la propriété exclusive de GGWP. Les puzzles de Sudoku sont générés à partir de bases de données publiques sous licence ouverte.</p>
-
     <h2>5. Disponibilité</h2>
     <p>Nous nous efforçons de maintenir l'application disponible et fonctionnelle, mais ne pouvons garantir une disponibilité sans interruption. Nous nous réservons le droit de modifier, suspendre ou interrompre l'application à tout moment sans préavis.</p>
-
     <h2>6. Limitation de responsabilité</h2>
     <p>L'application est fournie "telle quelle". GGWP ne saurait être tenu responsable de tout dommage direct ou indirect lié à l'utilisation de l'application, y compris la perte de données de jeu.</p>
-
     <h2>7. Droit applicable</h2>
     <p>Les présentes conditions sont soumises au droit français. En cas de litige, les tribunaux français sont compétents.</p>
-
     <h2>8. Contact</h2>
     <p>Pour toute question : <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
   </div>
 
-  <!-- CONTACTS -->
-  <div class="section" id="contact">
+  <div class="section" id="contact-fr">
     <p class="section-label">Nous écrire</p>
-    <h1 class="page-title">Contacts</h1>
+    <h1 class="page-title">Contact</h1>
     <p class="update-date"> </p>
-
     <div class="highlight">
       <p>GGWP est un projet indépendant. Nous lisons tous les messages et tentons de répondre dans les meilleurs délais.</p>
     </div>
-
     <h2>Par e-mail</h2>
     <p>Pour toute question, suggestion ou signalement de bug :<br>
     <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
-
     <h2>Signaler un problème</h2>
     <p>Si vous rencontrez un bug ou un comportement inattendu dans l'application, décrivez-nous :</p>
     <ul>
@@ -322,26 +319,132 @@
       <li>Les étapes pour reproduire le problème</li>
       <li>Une capture d'écran si possible</li>
     </ul>
-
     <h2>Suggestions</h2>
     <p>Vos idées sont les bienvenues. GGWP est construit dans l'esprit d'une communauté — vos retours façonnent les prochaines versions.</p>
+  </div>
+
+  <!-- ═══════════════════════ ENGLISH ═══════════════════════ -->
+
+  <div class="section" id="privacy-en">
+    <p class="section-label">Data & privacy</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="update-date">Last updated: March 2026</p>
+    <div class="highlight">
+      <p>GGWP Sudoku does not collect, store or transmit any personal data.</p>
+      <p>Your privacy is fully protected.</p>
+    </div>
+    <h2>1. Who we are</h2>
+    <p>GGWP is an independent project developed by a French developer. The GGWP Sudoku app is available for free on the Google Play Store, with no advertising and no business model based on your data.</p>
+    <h2>2. Data collected</h2>
+    <p>We collect <strong>no personal data whatsoever</strong>. The app requires no user account, no email address, and no internet connection to function.</p>
+    <p>The only data generated by the app are:</p>
+    <ul>
+      <li>Your game statistics (time, errors, difficulty level)</li>
+      <li>Your preferences (language, dark mode, settings)</li>
+      <li>The save state of your current game</li>
+    </ul>
+    <p>All of this data is <strong>stored exclusively on your device</strong>, in the app's local storage. It is never transmitted to us and we have no access to it.</p>
+    <h2>3. Advertising</h2>
+    <p>The app contains no advertising and integrates no advertising SDK. No advertising identifier is used.</p>
+    <h2>4. Third-party services</h2>
+    <p>The app integrates no third-party analytics services (Google Analytics, Firebase, etc.), no tracking tools, and no social networks.</p>
+    <p>Distribution via the Google Play Store is subject to Google's own terms and conditions, which are independent of our application.</p>
+    <h2>5. User rights (GDPR)</h2>
+    <p>In accordance with the General Data Protection Regulation (GDPR), you have rights over your data. In our case, since no data is collected, these rights are exercised directly on your device:</p>
+    <ul>
+      <li><strong>Access and deletion</strong>: clear the app's data in Settings → Apps → Sudoku (GGWP's) → Storage → Clear data</li>
+      <li><strong>Portability</strong>: not applicable (no centralised data)</li>
+    </ul>
+    <h2>6. Minors</h2>
+    <p>The app is intended for all audiences. No data concerning minors is collected.</p>
+    <h2>7. Changes</h2>
+    <p>This policy may be updated. In the event of a significant change, the date at the top of this page will be updated. Continued use of the app constitutes acceptance of any changes.</p>
+    <h2>8. Contact</h2>
+    <p>For any questions regarding this policy, contact us at: <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
+  </div>
+
+  <div class="section" id="terms-en">
+    <p class="section-label">Usage</p>
+    <h1 class="page-title">Terms of Use</h1>
+    <p class="update-date">Last updated: March 2026</p>
+    <div class="highlight">
+      <p>By downloading and using GGWP Sudoku, you agree to these Terms of Use.</p>
+    </div>
+    <h2>1. The app</h2>
+    <p>GGWP Sudoku is a Sudoku puzzle game developed and distributed for free by GGWP. It is available on Android via the Google Play Store.</p>
+    <h2>2. Licence</h2>
+    <p>GGWP grants you a personal, non-exclusive, non-transferable and revocable licence to use the app on your personal devices, in accordance with these terms.</p>
+    <p>You are not permitted to:</p>
+    <ul>
+      <li>Copy, modify or distribute the app</li>
+      <li>Attempt to decompile or reverse-engineer the app</li>
+      <li>Use the app for commercial purposes without prior authorisation</li>
+    </ul>
+    <h2>3. Free to use</h2>
+    <p>The app is and will remain free. It contains no advertising.</p>
+    <h2>4. Intellectual property</h2>
+    <p>The app, its code, design, animations and texts are the exclusive property of GGWP. The Sudoku puzzles are drawn from public databases under open licences.</p>
+    <h2>5. Availability</h2>
+    <p>We strive to keep the app available and functional, but cannot guarantee uninterrupted availability. We reserve the right to modify, suspend or discontinue the app at any time without notice.</p>
+    <h2>6. Limitation of liability</h2>
+    <p>The app is provided "as is". GGWP shall not be held liable for any direct or indirect damage arising from use of the app, including loss of game data.</p>
+    <h2>7. Governing law</h2>
+    <p>These terms are governed by French law. In the event of a dispute, French courts shall have jurisdiction.</p>
+    <h2>8. Contact</h2>
+    <p>For any questions: <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
+  </div>
+
+  <div class="section" id="contact-en">
+    <p class="section-label">Get in touch</p>
+    <h1 class="page-title">Contact</h1>
+    <p class="update-date"> </p>
+    <div class="highlight">
+      <p>GGWP is an independent project. We read every message and do our best to reply promptly.</p>
+    </div>
+    <h2>By email</h2>
+    <p>For any question, suggestion or bug report:<br>
+    <a href="mailto:ggwp-mobilegames@protonmail.com">ggwp-mobilegames@protonmail.com</a></p>
+    <h2>Reporting a problem</h2>
+    <p>If you encounter a bug or unexpected behaviour in the app, please tell us:</p>
+    <ul>
+      <li>Your phone model and Android version</li>
+      <li>The steps to reproduce the problem</li>
+      <li>A screenshot if possible</li>
+    </ul>
+    <h2>Suggestions</h2>
+    <p>Your ideas are welcome. GGWP is built with a community spirit — your feedback shapes future versions.</p>
   </div>
 
 </main>
 
 <footer>
-  <p><strong>GGWP</strong> · Sudoku · Gratuit, sans publicité, sans données</p>
-  <p style="margin-top:8px">© 2026 GGWP · Tous droits réservés</p>
+  <p><strong>GGWP</strong> · Sudoku · Free, ad-free, data-free</p>
+  <p style="margin-top:8px">© 2026 GGWP · All rights reserved</p>
 </footer>
 
 <script>
+  var currentTab = { fr: 'privacy-fr', en: 'privacy-en' };
+
   function show(id, link) {
+    var lang = id.endsWith('-en') ? 'en' : 'fr';
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('#nav-' + lang + ' a').forEach(a => a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     link.classList.add('active');
+    currentTab[lang] = id;
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return false;
+  }
+
+  function setLang(lang, btn) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('nav-fr').style.display = lang === 'fr' ? 'flex' : 'none';
+    document.getElementById('nav-en').style.display = lang === 'en' ? 'flex' : 'none';
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(currentTab[lang]).classList.add('active');
+    document.title = lang === 'fr' ? 'GGWP — Mentions légales' : 'GGWP — Legal';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
 
